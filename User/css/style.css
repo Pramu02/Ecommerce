@@ -1,0 +1,273 @@
+nav.header {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: "Roboto Condensed", sans-serif;
+    position: sticky;
+    z-index: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.txt-rt {
+    text-align: right;
+}
+
+
+/* text align right */
+
+.txt-lt {
+    text-align: left;
+}
+
+
+/* text align left */
+
+.txt-center {
+    text-align: center;
+}
+
+
+/* text align center */
+
+.float-rt {
+    float: right;
+}
+
+
+/* float right */
+
+.float-lt {
+    float: left;
+}
+
+
+/* float left */
+
+.clear {
+    clear: both;
+}
+
+
+/* clear float */
+
+.pos-relative {
+    position: relative;
+}
+
+
+/* Position Relative */
+
+.pos-absolute {
+    position: absolute;
+}
+
+
+/* Position Absolute */
+
+.vertical-base {
+    vertical-align: baseline;
+}
+
+
+/* vertical align baseline */
+
+.vertical-top {
+    vertical-align: top;
+}
+
+
+/* vertical align top */
+
+.underline {
+    border-bottom: 1px solid #eee;
+    margin: 0 0 10px 0;
+}
+
+
+/* Add 5px bottom padding and a underline */
+
+nav.vertical ul li {
+    display: block;
+}
+
+
+/* vertical menu */
+
+nav.horizontal ul li {
+    display: inline-block;
+}
+
+
+/* horizontal menu */
+
+#logohead {
+    text-decoration: bold;
+    color: white;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#logohead:hover {
+    color: yellow;
+}
+
+body {
+    font-family: "AmbleRegular";
+    background: #fff;
+}
+
+.header {
+    background: url(../images/hd-bg.png);
+    position: sticky;
+    top: 0;
+}
+
+.header-top {
+    border-bottom: 2px ridge #333;
+}
+
+div.wrap {
+    width: 98%;
+}
+
+a:hover {
+    color: white;
+}
+
+.nav-wrap {
+    float: right;
+    width: 67%;
+    margin: 30px auto;
+}
+
+.nav-wrap ul {
+    float: right;
+}
+
+.group:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+*:first-child+html .group {
+    zoom: 1;
+}
+
+
+/* Example One */
+
+#example-one {
+    margin: 0 auto;
+    list-style: none;
+    position: relative;
+}
+
+#example-one li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#example-one a {
+    color: #aaa;
+    font-size: 16px;
+    float: left;
+    padding: 6px 10px 4px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#example-one a:hover {
+    color: #db9603;
+}
+
+.h-logo {
+    float: left;
+    margin-left: 1%;
+}
+
+img#head_logo {
+    display: inline-block;
+    border-radius: 100px;
+    width: 5%;
+    margin: 0 0 0 1%;
+}
+
+#reservation-form {
+    float: right;
+    margin-top: 2px;
+}
+
+#reservation-form .field {
+    float: left;
+}
+
+#reservation-form .field1 {
+    float: left;
+}
+
+#reservation-form .field {
+    display: block;
+    /* height: 20px; */
+    font-size: 13px;
+    color: #fac9a9;
+    margin-bottom: 30px;
+}
+
+#reservation-form select {
+    border: 1px solid #5d3825;
+    background: #db9603;
+    color: #fff;
+    outline: none;
+    padding: 5px;
+    float: left;
+}
+
+#reservation-form select.select1 {
+    width: 200px;
+    margin-right: 10px;
+}
+
+#reservation-form select.select2 {
+    width: 200px;
+    margin-right: 10px;
+}
+
+#reservation-form label {
+    display: block;
+    padding-bottom: 4px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+form#reservation-form div.field {
+    display: block;
+    height: 20px;
+    font-size: 13px;
+    color: #fac9a9;
+    margin-bottom: 20px;
+}
+
+#footer {
+    background-color: black;
+    display: block;
+}
+
+.footer-top {
+    padding: 20px 0;
+}
