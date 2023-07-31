@@ -1,0 +1,14 @@
+First time
+git init
+git config user.name "Pramesh Maharjan"
+git add .                                         
+git commit -m 'feat: dom traverse and get values using document obj'
+git remote add origin https://github.com/Pramu02/Ecommerce.git
+git push -u origin master
+ 
+
+
+Second time
+git add .
+git commit -m 'fix'
+git push
