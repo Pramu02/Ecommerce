@@ -10,5 +10,5 @@ git push -u origin master
 
 Second time
 git add .
-git commit -m 'fix'
+git commit -m 'feat random feature add'
 git push

@@ -11,6 +11,7 @@
 
 </head>
 
+
 <body>
     <div class="info-boxes wow fadeInUp">
         <div class="info-boxes-inner">
@@ -63,6 +64,8 @@
 
 
     <main>
+
+
         <?php
         $sql = "SELECT * from product";
         $all_product = $conn->query($sql);
@@ -82,14 +85,47 @@
                             <?php echo $row["Price"]; ?>
                         </b></p>
                 </div>
-                <a href="cart.php?id=<?php echo $row["PID"]; ?>"><button class="add"> Add to Cart</button></a>
+                <!-- <button onclick="addToCart(<?php echo $row["PID"]; ?>)" class=" add"> Add to Cart</button> -->
+
+                <button
+                    onclick="addToCart('<?php echo htmlspecialchars($row["PID"], ENT_QUOTES); ?>','<?php echo htmlspecialchars($row["Name"], ENT_QUOTES); ?>','<?php echo htmlspecialchars($row["Price"], ENT_QUOTES); ?>')"
+                    class="add">
+                    Add to Cart
+                </button>
+
             </div>
             <?php
         }
         ?>
     </main>
 
+
 </body>
+
+<script>
+
+    function addToCart(productId, productName, productPrice) {
+
+        prod = parseInt(productId);
+        price = parseInt(productPrice);// Sanitize the input to prevent SQL injection
+
+        console.log(price);
+        // Create a JSON object representing the product details
+        var productDetails = {
+            id: prod,
+            name: productName,
+            price: price,
+            quantity: 1
+        };
+        // Convert the JSON object to a string
+        var productDetailsString = JSON.stringify(productDetails);
+
+        // Store the product details in a cookie
+        document.cookie = "cartData=" + encodeURIComponent(productDetailsString) + "; path=/";
+        // Show a confirmation message (optional)
+        alert('Product has been added to the cart');
+    }
+</script>
 
 </html>
 
