@@ -6,6 +6,14 @@
     .pull-left {
         color: black;
     }
+
+    .pull-right {
+        color: white;
+    }
+
+    td {
+        color: white;
+    }
 </style>
 <footer id="footer" class="footer color-bg">
     <div class="links-social inner-top-sm">

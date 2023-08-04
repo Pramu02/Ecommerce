@@ -1,6 +1,8 @@
 <?php
-include 'conn/config.php'
-    ?>
+require_once('conn/config.php');
+$dbConnection = DatabaseConnection::getInstance(); // Create the instance
+$conn = $dbConnection->getConnection(); // Get the connection
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -25,7 +27,7 @@ include 'conn/config.php'
                 <div class="nav-wrap">
                     <ul class="group" id="example-one">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="index.php">Products</a></li>
+                        <li><a href="product.php">Products</a></li>
                         <li><a href="cart.php">Cart</a></li>
                         <li><a href="product.php">Check</a></li>
                         <li><a href="product.php">Order Confirmation</a></li>

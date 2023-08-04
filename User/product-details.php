@@ -1,4 +1,57 @@
-<?php include 'includes/header.php'; ?>
+<?php
+include 'includes/header.php';
+$id = $_REQUEST['id'];
+$query = "SELECT * FROM product WHERE PID='" . $id . "'";
+$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$row = mysqli_fetch_assoc($result);
+
+//Do not delete cookies below
+setcookie("amp_6e403e", "", time() - 3600, "/");
+ob_start();
+
+function formatDescription($description)
+{
+    return nl2br($description);
+}
+
+function getAvailabilityText($quantity)
+{
+    if ($quantity == 0) {
+        return "<p class='text-danger'>Out of stock</p>";
+    } elseif ($quantity <= 10) {
+        return '<p class="text-danger">Limited stock</p>';
+    } else {
+        return "<p class='text-success'>Available</p>";
+    }
+}
+
+function cookieCheck($productId)
+{
+    $arrRec = [];
+    if (isset($_COOKIE['recently_viewed']) && !empty($_COOKIE['recently_viewed'])) {
+        $arrRec = unserialize($_COOKIE['recently_viewed']);
+
+        // Add an additional check to ensure that $arrRec is always an array
+        if (!is_array($arrRec)) {
+            $arrRec = [];
+        }
+    }
+    if (!in_array($productId, $arrRec)) {
+        $arrRec[] = $productId;
+    } else {
+        $key = array_search($productId, $arrRec);
+        $before = array_slice($arrRec, 0, $key);
+        $after = array_slice($arrRec, $key + 1);
+        $newArr = array_merge(array($productId), $before, $after);
+        $arrRec = $newArr;
+    }
+    setCookie('recently_viewed', serialize($arrRec), time() + 60 * 60);
+    print_r($arrRec);
+}
+
+$productId = $row['PID'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -112,6 +165,11 @@
 
     </section><!-- /.section -->
 </body>
+<?php
+cookieCheck($productId);
+include 'includes/footer.php';
+ob_end_flush();
+?>
 <script>
 
     function addToCart(productId, productName, productPrice) {
@@ -138,5 +196,3 @@
 </script>
 
 </html>
-
-<?php include 'includes/footer.php'; ?>

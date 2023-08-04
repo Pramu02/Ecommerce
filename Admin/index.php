@@ -1,5 +1,4 @@
 <?php
-
 include 'includes/header.php';
 
 ?>
@@ -23,7 +22,6 @@ include 'includes/header.php';
 		margin-top: 10px;
 	}
 </style>
-<?php include('conn/config.php') ?>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">

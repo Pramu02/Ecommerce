@@ -1,3 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.info-boxes {
+    padding: 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.info-box {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-box i {
+    font-size: 36px;
+    color: #333;
+}
+
+.info-box-heading {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.info-box h6 {
+    font-size: 14px;
+    color: #777;
+}
+
+.card {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+    padding: 10px 0;
+}
+
+.product_name {
+    font-size: 16px;
+    color: #333;
+}
+
+.price {
+    font-size: 14px;
+    color: #666;
+}
+
+.add {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add:hover {
+    background-color: #0056b3;
+}
+
 .info-boxes {
     width: 92%;
     margin: auto;

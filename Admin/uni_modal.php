@@ -25,7 +25,7 @@
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           modalContent.innerHTML = xhr.responseText;
@@ -49,12 +49,12 @@
   }
 
   // Attach click event listener to the close button
-  document.querySelector(".close").addEventListener("click", function() {
+  document.querySelector(".close").addEventListener("click", function () {
     closeModal();
   });
 
   // Close the modal when the user clicks outside of it
-  window.addEventListener("click", function(event) {
+  window.addEventListener("click", function (event) {
     var modalContainer = document.getElementById("modalContainer");
     if (event.target == modalContainer) {
       closeModal();

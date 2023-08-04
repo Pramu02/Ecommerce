@@ -1,3 +1,8 @@
+<?php
+require_once('conn/config.php');
+$dbConnection = DatabaseConnection::getInstance(); // Create the instance
+$conn = $dbConnection->getConnection(); // Get the connection
+?>
 <!DOCTYPE html>
 <html>
 
