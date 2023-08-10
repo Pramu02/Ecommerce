@@ -70,12 +70,12 @@ include 'includes/header.php';
 												<span class="visually-hidden">Toggle Dropdown</span>
 											</button>
 											<ul class="dropdown-menu">
-												<li><a class="dropdown-item edit_product" href="#" id="edit_product"
+												<li><a class="dropdown-item edit_product" href="#"
 														data-id='<?php echo $row['PID'] ?>'>Edit</a></li>
 												<li>
 													<hr class="dropdown-divider">
 												</li>
-												<li><a class="dropdown-item delete_product" href="#" id="delete_product"
+												<li><a class="dropdown-item delete_product" href="#"
 														data-id='<?php echo $row['PID'] ?>'>Delete</a></li>
 											</ul>
 										</div>
@@ -113,11 +113,7 @@ include 'includes/header.php';
 </body>
 
 <script>
-
-
 	function uni_modal(title, url) {
-
-
 		// Example code for creating a simple modal using Bootstrap
 		var modal = $('<div class="modal">');
 		modal.html('<div class="modal-dialog">' +
@@ -131,7 +127,6 @@ include 'includes/header.php';
 			'<div class="modal-body">' +
 			'<iframe src="' + url + '" width="450px" height="600px"></iframe>' +
 			'</div>' +
-
 			'</div>' +
 			'</div>');
 
@@ -142,15 +137,15 @@ include 'includes/header.php';
 		$('#new_product').click(function () {
 			uni_modal('New Product', 'add_product.php');
 		})
-		$('#edit_product').click(function () {
+		$('.edit_product').click(function () {
 			uni_modal('Edit Product', 'edit_product.php?id=' + $(this).attr('data-id'));
 		})
-		$('#delete_product').click(function () {
-			_conf('Are you sure to delete this data?', 'delete_product', [$(this).attr('data-id')])
+		$('.delete_product').click(function () {
+			_conf('Are you sure to delete this data?', 'delete_product', [$(this).attr('data-id')]);
 		})
 
 		function delete_product($id = '') {
-			start_load()
+			start_load();
 			$.ajax({
 				url: 'ajax.php?action=delete_product',
 				method: 'POST',
@@ -159,24 +154,25 @@ include 'includes/header.php';
 					if (resp == 1) {
 						alert_toast("Data successfully deleted", 'success');
 						setTimeout(function () {
-							location.reload()
-						}, 1500)
+							location.reload();
+						}, 1500);
 					}
 				}
-			})
+			});
 		}
-	})
+	});
+
 	window.start_load = function () {
-		$('body').prepend('<div id="preloader2"></div>')
+		$('body').prepend('<div id="preloader2"></div>');
 	}
 	window.end_load = function () {
 		$('#preloader2').fadeOut('fast', function () {
 			$(this).remove();
-		})
+		});
 	}
 	window._conf = function ($msg = '', $func = '', $params = []) {
-		$('#confirm_modal #confirm').attr('onclick', $func + "(" + $params.join(',') + ")")
-		$('#confirm_modal .modal-body').html($msg)
-		$('#confirm_modal').modal('show')
+		$('#confirm_modal #confirm').attr('onclick', $func + "(" + $params.join(',') + ")");
+		$('#confirm_modal .modal-body').html($msg);
+		$('#confirm_modal').modal('show');
 	}
 </script>

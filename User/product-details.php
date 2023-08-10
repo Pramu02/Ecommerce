@@ -47,6 +47,7 @@ function cookieCheck($productId)
     }
     setCookie('recently_viewed', serialize($arrRec), time() + 60 * 60);
     print_r($arrRec);
+
 }
 
 $productId = $row['PID'];

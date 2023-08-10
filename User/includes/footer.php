@@ -11,7 +11,7 @@
         color: white;
     }
 
-    td {
+    div.contact-timing table.table td {
         color: white;
     }
 </style>

@@ -238,7 +238,59 @@
             }
 
     } else {
-        echo "No recent items";
+        $arrRandom = [2, 16, 4, 8];
+        $recentViewId = implode(",", $arrRandom);
+
+        $resRandom = mysqli_query($conn, "SELECT * FROM product WHERE PID IN ($recentViewId)
+            ORDER BY FIELD(PID, $recentViewId)");
+
+        while ($row = mysqli_fetch_assoc($resRandom)) {
+            ?>
+                <div class="carousel-container">
+                    <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <!-- Carousel items with images and descriptions -->
+                            <?php
+                            $active = true;
+                            while ($row = mysqli_fetch_assoc($resRandom)) {
+                                $imageSrc = "../Admin/" . $row["Image"];
+                                ?>
+                                <div class="carousel-item <?php echo $active ? 'active' : ''; ?>" data-bs-interval="5000">
+                                    <div class="item-content">
+                                        <a href="product-details.php?id=<?php echo htmlentities($row['PID']); ?>">
+                                            <img src="<?php echo $imageSrc; ?>" alt="" id="imagedisp">
+                                        </a>
+                                        <div class="carousel-item-info">
+                                            <h4>
+                                                <?php echo $row["Name"]; ?>
+                                            </h4>
+                                            <p>
+                                                <?php echo $row["Description"]; ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                                $active = false;
+                            }
+                            ?>
+                            <!-- Add more carousel items here if needed -->
+                        </div>
+                        <!-- Carousel controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <?php
+        }
     }
 
     ?>
